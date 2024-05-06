@@ -14,11 +14,21 @@
 </head>
 
 <body>
-  <nav class="text-center p-3">
-    <?php
-    if(isset($_SESSION['name'])) { ?>
-      <a href="./scripts/disconnect.php">Se déconnecter</a>
-    <?php } 
-    ?>
+  <nav class="text-center p-3 d-flex justify-content-between">
+    <div>
+      <a href="./index.php">Accueil</a>
+      <a href="./public-recettes.php">Recettes publiques</a>
+    </div>
+    <div>
+      <?php if(!isset($_SESSION['name'])) : ?>
+        <a href="./signin.php">Signin</a>
+        <a href="./signup.php">Signup</a>
+      <?php endif; ?>
+      <?php if(isset($_SESSION['name'])) : ?>
+        <a href="./scripts/disconnect.php">Disconnect</a>
+        <a href="./recettes.php">Vos recettes</a>
+      <?php endif; ?>
+      
+    </div>
 
   </nav>

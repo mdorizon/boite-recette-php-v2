@@ -14,6 +14,12 @@
     <div class="mb-3">
       <input required type="text" class="form-control" placeholder="Nom de la recette" name="recette-name">
       <input required type="text" class="form-control mt-3" placeholder="Lien de l'image" name="recette-img">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input mt-3" value="1" name="is-public" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Recette publique ?
+        </label>
+      </div>
       <textarea required class="form-control mt-3" placeholder="liste d'ingrédients (séparez avec un ; )" name="recette-ingredients"></textarea>
       <textarea required class="form-control mt-3" placeholder="étapes (séparez avec un ; )" name="recette-steps"></textarea>
     </div>

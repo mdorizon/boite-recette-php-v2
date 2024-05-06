@@ -38,6 +38,11 @@ $result = $request->fetchAll(PDO::FETCH_ASSOC);
         <img class="w-50" src="<?= $recette['img'] ?>" alt="recette<?= $recette['id']?>">
         <div class="ms-5 mt-5">
           <h2><?= $recette['name'] ?></h2>
+          <?php if($recette['is_public'] == 0) : ?>
+            <button type="button" class="btn btn-danger">Recette Privée</button>
+          <?php elseif($recette['is_public'] == 1) : ?>
+            <button type="button" class="btn btn-success">Recette Publique</button>
+          <?php endif; ?>
           <p>Liste des ingrédients :</p>
           <ul>
             <?php foreach($ingredients as $ingredient){ echo('<li>' . $ingredient . '</li>'); } ?>
@@ -46,6 +51,7 @@ $result = $request->fetchAll(PDO::FETCH_ASSOC);
           <ol type="1">
             <?php foreach($steps as $step){ echo('<li>' . $step . '</li>'); } ?>
           </ol>
+          <p></p>
           <a href="./scripts/recette-remove-script.php?id=<?= $recette['id'] ?>">
             <i class="fa-solid fa-trash" style="color: red;"></i>
           </a>

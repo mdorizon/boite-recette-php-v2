@@ -26,6 +26,12 @@ $result = $request->fetch(PDO::FETCH_ASSOC);
       <input type="number" name="id" id="id" style="display: none;" value="<?= $_GET['id']; ?>">
       <input required type="text" class="form-control" placeholder="Nom de la recette" name="recette-name" value="<?= $result['name']; ?>">
       <input required type="text" class="form-control mt-3" placeholder="Lien de l'image" name="recette-img" value="<?= $result['img']; ?>">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input mt-3" <?= $result['is_public'] == 1 ? 'checked' : '' ?> value="1" name="is-public" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Recette publique ?
+        </label>
+      </div>
       <textarea required class="form-control mt-3" placeholder="liste d'ingrédients (séparez avec un ; )" name="recette-ingredients"><?= $result['ingredients']; ?></textarea>
       <textarea required class="form-control mt-3" placeholder="étapes (séparez avec un ; )" name="recette-steps"><?= $result['steps']; ?></textarea>
     </div>
