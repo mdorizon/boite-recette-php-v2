@@ -43,9 +43,17 @@ $result = $request->fetchAll(PDO::FETCH_ASSOC);
         <div class="ms-5 mt-5">
           <h2><?= $recette['name'] ?></h2>
           <?php if($recette['is_public'] == 0) : ?>
-            <button type="button" class="btn btn-danger">Recette Privée</button>
+            <form action="./scripts/recette-status-script.php" method="post">
+              <input type="number" name="id" id="id" style="display: none;" value="<?= $recette['id']; ?>">
+              <input type="number" name="status" id="status" style="display: none;" value="0">
+              <button type="submit" class="btn btn-danger">Recette Privée</button>
+            </form>
           <?php elseif($recette['is_public'] == 1) : ?>
-            <button type="button" class="btn btn-success">Recette Publique</button>
+            <form action="./scripts/recette-status-script.php" method="post">
+              <input type="number" name="id" id="id" style="display: none;" value="<?= $recette['id']; ?>">
+              <input type="number" name="status" id="status" style="display: none;" value="1">
+              <button type="submit" class="btn btn-success">Recette Publique</button>
+            </form>
           <?php endif; ?>
           <p>Liste des ingrédients :</p>
           <ul>
