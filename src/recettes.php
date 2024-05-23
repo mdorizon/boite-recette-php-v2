@@ -27,6 +27,10 @@ $result = $request->fetchAll(PDO::FETCH_ASSOC);
       <a class="btn btn-primary mt-4" href="./new-recette.php">Ajouter</a>
     </div>
   <?php else: ?>
+    <div class="text-center mb-5">
+      <h2 class="mt-5">Bonjour <?= $_SESSION['name']; ?>, ajoutez une nouvelle recette ici !</h2>
+      <a class="btn btn-primary mt-4" href="./new-recette.php">Ajouter</a>
+    </div>
     <?php foreach ($result as $recette) : ?>
       <?php
         // liste des ingredients
@@ -64,10 +68,6 @@ $result = $request->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
     <?php endforeach; ?>
-    <div class="text-center mb-5">
-      <h2 class="mt-5">Bonjour <?= $_SESSION['name']; ?>, ajoutez une nouvelle recette ici !</h2>
-      <a class="btn btn-primary mt-4" href="./new-recette.php">Ajouter</a>
-    </div>
   <?php endif; ?>
 </section>
 
