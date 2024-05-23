@@ -18,4 +18,4 @@ $request->bindParam(':id', $recette_id);
 // execute request
 $request->execute();
 
-header("Location: ../recettes.php");
+header('Location: ../recettes.php/#' . $recette_id);
